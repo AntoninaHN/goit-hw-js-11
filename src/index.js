@@ -1,7 +1,7 @@
 import './sass/main.scss';
 import { getImages, resetPage } from './api';
 import { showBtn, hideBtn } from './loadBtn';
-import { Notify } from 'notiflix';
+import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
@@ -11,7 +11,6 @@ const refs = {
   loadBtn: document.querySelector('.load-btn'),
 };
 let element = '';
-let cardHeight = 0;
 
 hideBtn(refs.loadBtn);
 
@@ -37,10 +36,8 @@ function onSearch(event) {
       clearGallery();
       renderGallery(imagesArr);
       new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 });
-      Notify.success(`Hooray🎉 We found ${totalImages} images.`);
+      Notiflix.Notify.success(`Hooray🎉 We found ${totalImages} images.`);
       showBtn(refs.loadBtn);
-
-      cardHeight = document.querySelector('.gallery').firstElementChild.getBoundingClientRect();
     }
   });
 }
@@ -51,7 +48,7 @@ function onLoadMoreBtn() {
       const imagesArr = images.data.hits;
 
       if (imagesArr.length === 0) {
-        Notify.failure('We are sorry, but you have reached the end of search results.');
+        Notiflix.Notify.failure('We are sorry, but you have reached the end of search results.');
         hideBtn(refs.loadBtn);
         return;
       }
@@ -65,7 +62,7 @@ function onLoadMoreBtn() {
     })
     .catch(error => {
       console.log(error);
-      Notify.failure('We are sorry, but you have reached the end of search results.');
+      Notiflix.Notify.failure('We are sorry, but you have reached the end of search results.');
       hideBtn(refs.loadBtn);
     });
 }
