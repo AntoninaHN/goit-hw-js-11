@@ -14,6 +14,10 @@ let element = '';
 
 hideBtn(refs.loadBtn);
 
+function clearGallery() {
+  refs.gallery.innerHTML = '';
+}
+
 refs.form.addEventListener('submit', onSearch);
 refs.loadBtn.addEventListener('click', onLoadMoreBtn);
 
@@ -97,8 +101,4 @@ function renderGallery(images) {
     })
     .join('');
   refs.gallery.insertAdjacentHTML('beforeend', markup);
-}
-
-function clearGallery() {
-  refs.gallery.innerHTML = '';
 }
