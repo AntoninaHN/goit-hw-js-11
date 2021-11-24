@@ -63,4 +63,4 @@ module.exports=require("./lib/axios");
 },{"./lib/axios":"nUiQ"}],"LVu9":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.getImages=r,exports.resetPage=s;const e=require("axios").default,t="https://pixabay.com/api/",a="24482250-ff2a48ff2cbe8defcdea0f664";let o=1;async function r(r){try{const c=await e.get(`${t}?key=${a}&q=${r}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${o}`);return o+=1,c}catch(s){console.log(s)}}function s(){o=1}
 },{"axios":"dZBD"}]},{},["LVu9"], null)
-//# sourceMappingURL=/goit-hw-js-11/api.dc5657ab.js.map
+//# sourceMappingURL=/goit-hw-js-11/api.c483a6a9.js.map
